@@ -24,7 +24,6 @@
 
 
 
-
 <div class= "main">
 <h1>Zach Martin</h1>
 <p>I am a motivated Cloud Engineer who is looking to take my IT skills to the next level.
@@ -57,7 +56,32 @@
     <li>The Website you are looking at was built using AWS resources including S3, Cloudfront, and Route53</li>
     <li>Coming Soon: A visitor counter that will automatically update itself.</li>
 </ul>
+
+<br><br>
+
+
+<h3>This site has been visited <span id="visits"></span> times.</h3>
+
+
+
+<script>
+    function getCount() {
+        var count = document.getElementById("visits");
+        var response = new XMLHttpRequest();
+        response.open("GET", 'https://0h7w9m148h.execute-api.us-west-1.amazonaws.com/default/visitorCount');
+        response.send();
+        response.onload = function (e) {
+            count.innerHTML = response.responseText;
+        }
+}
+
+getCount();
+</script>
+
+
 </div>
+
+
 
 </body>
 </html>
